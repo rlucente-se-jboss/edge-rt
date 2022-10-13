@@ -65,15 +65,24 @@ following command to autofill the UUID of the image to download.
 
     composer-cli compose image <TAB>
 
-We'll copy the compressed OCI container to our local container
+We'll import the compressed OCI container to our local container
 storage and then run the container to provide rpm-ostree content
 to support the creation of the ISO installer.
 
-    skopeo copy oci-archive:<UUID>-container.tar containers-storage:localhost/rfe-mirror:latest
-    podman run --rm -p 8000:8080 rfe-mirror
+    sudo podman load -i <UUID>-container.tar
+    sudo podman images
 
-Once the container is running, in a separate terminal window go
-ahead and kickoff the ISO installer build.
+Note the image identifier and use that to tag the image:
+
+    sudo podman tag <IMAGE ID> localhost/edge-container
+
+Now, run the container to offer the repository content for the
+builder:
+
+    sudo podman run --rm -d --name=edge-container -p 8000:8080 localhost/edge-container
+
+Once the container is running, go ahead and kickoff the ISO installer
+build.
 
 To start the build, push the blueprint to the image builder service
 and then launch the compose as shown below. Make sure to substitute
@@ -82,7 +91,7 @@ a "remote" on the edge device for pulling ostree updates.
 
     composer-cli blueprints push edge-rt-installer.toml
     composer-cli compose start-ostree Edge-RT-installer edge-installer \
-                 --url http://YOUR-SERVER-IP-ADDR-OR-NAME:8000/repo/
+                 --url http://YOUR-SERVER-IP-ADDR-OR-NAME:8080/repo/
 
 The compose for the ISO installer takes around four minutes on my
 laptop. Again, your mileage may vary. You can monitor the build
