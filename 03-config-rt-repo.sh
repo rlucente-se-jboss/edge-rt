@@ -8,7 +8,7 @@
 ## Add the new source repo for image builder
 ##
 
-composer-cli sources add rt_source.toml
+composer-cli sources add rt-source.toml
 
 composer-cli sources list
 composer-cli sources info rt
