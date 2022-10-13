@@ -16,7 +16,7 @@ cp $HOME/.ssh/id_$EDGE_USER.pub .
 ## Create the blueprint file for an edge device
 ##
 
-cat > edge-blueprint.toml <<EOF
+cat > edge-rt-blueprint.toml <<EOF
 name = "Edge-RT"
 description = ""
 version = "0.0.1"
