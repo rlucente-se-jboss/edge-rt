@@ -27,3 +27,10 @@ systemctl enable --now osbuild-composer.socket cockpit.socket
 
 [[ ! -z "$SUDO_USER" ]] && usermod -aG weldr $SUDO_USER
 
+##
+## Enable firewall ports for web console and containerized rpm-ostree
+##
+
+firewall-cmd --permanent --add-port=8080/tcp --add-port=9090/tcp
+firewall-cmd --reload
+
