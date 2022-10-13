@@ -1,0 +1,2 @@
+# exclude any local backups
+*.bak
