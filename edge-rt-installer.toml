@@ -1,0 +1,3 @@
+name = "Edge-RT-installer"
+description = "blueprint for Edge-RT installer"
+version = "0.0.1"
