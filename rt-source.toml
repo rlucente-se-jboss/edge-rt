@@ -3,6 +3,6 @@ check_ssl = true
 id = "rt"
 name = "rt"
 rhsm = true
-system = true
+system = false
 type = "yum-baseurl"
 url = "https://cdn.redhat.com/content/dist/rhel9/9/x86_64/rt/os"
