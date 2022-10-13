@@ -1,2 +1,6 @@
 # exclude any local backups
 *.bak
+
+# exclude any container builds or ISOs
+*.tar
+*.iso
