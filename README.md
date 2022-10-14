@@ -79,7 +79,7 @@ Note the image identifier and use that to tag the image:
 Now, run the container to offer the repository content for the
 builder:
 
-    sudo podman run --rm -d --name=edge-container -p 8000:8080 localhost/edge-container
+    sudo podman run --rm -d --name=edge-container -p 8080:8080 localhost/edge-container
 
 Once the container is running, go ahead and kickoff the ISO installer
 build.
