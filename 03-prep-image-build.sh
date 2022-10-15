@@ -21,6 +21,10 @@ name = "Edge-RT"
 description = ""
 version = "0.0.1"
 
+[[packages]]
+name = "container-tools"
+version = "*"
+
 [[groups]]
 name = "RT"
 
