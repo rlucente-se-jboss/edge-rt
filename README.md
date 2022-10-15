@@ -58,7 +58,7 @@ On my system, the output looks like the following where the UUID
 is the first column:
 
     $ composer-cli compose status
-    01fc74e7-c133-4651-bd76-81861a21ebc0 FINISHED Thu Oct 13 16:01:32 2022 Edge-RT         0.0.1 edge-container
+    dde61659-7a12-49e7-bba6-92d08d9a04e7 FINISHED Fri Oct 14 14:43:43 2022 Edge-RT   0.0.1 edge-container
 
 If there's only one rpm-ostree image, you can simply hit TAB on the
 following command to autofill the UUID of the image to download.
@@ -111,8 +111,10 @@ On my system, the output looks like the following where the UUID
 is the first column:
 
     $ composer-cli compose status
-    01fc74e7-c133-4651-bd76-81861a21ebc0 FINISHED Thu Oct 13 16:01:32 2022 Edge-RT         0.0.1 edge-container
-    4e605cbc-c77c-4214-a90d-b38c3e7a129f FINISHED Thu Oct 13 16:28:38 2022 Edge-RT-installer 0.0.1 edge-installer
+    dde61659-7a12-49e7-bba6-92d08d9a04e7 FINISHED Fri Oct 14 14:43:43 2022 Edge-RT         0.0.1 edge-conta
+iner
+    b9e2990c-8456-4a12-80ff-e8e762a00579 FINISHED Fri Oct 14 15:06:05 2022 Edge-RT-installer 0.0.1 edge-ins
+taller
 
 Download the ISO installer using the command:
 
@@ -124,3 +126,6 @@ could use it to install a second VM for the edge device. If working
 with a physical edge device, put the ISO file onto a USB thumb
 drive. There are ample instructions and tools available on how to
 do that.
+
+# TODO Use cyclictest to generate the kernel-rt graphs
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_real_time/9/html-single/optimizing_rhel_9_for_real_time_for_low_latency_operation/index#assembly_creating-and-running-containers_optimizing-RHEL9-for-real-time-for-low-latency-operation
