@@ -1,4 +1,4 @@
-# WIP Enable RHEL for Realtime kernel with RHEL for Edge
+# Enable RHEL for Realtime kernel with RHEL for Edge
 ## Setup
 Edit the `demo.conf` file and make sure that the credentials are
 correct, the subscription type is correct for your deployment of
