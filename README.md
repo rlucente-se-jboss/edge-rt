@@ -111,10 +111,8 @@ On my system, the output looks like the following where the UUID
 is the first column:
 
     $ composer-cli compose status
-    dde61659-7a12-49e7-bba6-92d08d9a04e7 FINISHED Fri Oct 14 14:43:43 2022 Edge-RT         0.0.1 edge-conta
-iner
-    b9e2990c-8456-4a12-80ff-e8e762a00579 FINISHED Fri Oct 14 15:06:05 2022 Edge-RT-installer 0.0.1 edge-ins
-taller
+    dde61659-7a12-49e7-bba6-92d08d9a04e7 FINISHED Fri Oct 14 14:43:43 2022 Edge-RT         0.0.1 edge-container
+    b9e2990c-8456-4a12-80ff-e8e762a00579 FINISHED Fri Oct 14 15:06:05 2022 Edge-RT-installer 0.0.1 edge-installer
 
 Download the ISO installer using the command:
 
