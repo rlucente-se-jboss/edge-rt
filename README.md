@@ -200,189 +200,190 @@ into the following three categories:
 * For microsecond event response times, RHEL for Real Time may require additional tuning.
 * For nanosecond event response times, a hard RTOS solution would be required.
 
-
-    got system topology: 1 node system (8 cores per node)
-    [INFO] importing module stressng
-    [INFO] importing module hackbench
-    [INFO] importing module kcompile
-    [INFO] importing module cyclictest
-    [INFO] Preparing load modules
-    [INFO] Preparing measurement modules
-    [INFO] Using measurement profile [loads: True  parallel: True]
-    [INFO] Preparing load modules
-    rteval run on 5.14.0-70.26.1.rt21.98.el9_0.x86_64 started at Sat Oct 15 10:14:08 2022
-    started 3 loads on 8 cores
-    started measurement threads on 8 cores
-    Run duration: 600.0 seconds
-    [INFO] Preparing measurement modules
-    [INFO] Sending start event to all load modules
-    [INFO] Waiting 30 seconds to let load modules settle down
-    [INFO] [kcompile] Starting load on node 0
-    [INFO] [kcompile node0] starting workload on node 0
-    [INFO] Sending start event to all measurement modules
-    [INFO] waiting for duration (600.0)
-    [INFO] Stopping measurement modules
-    [INFO] Stopping load modules
-    [INFO] [cyclictest] reducing 0
-    [INFO] [cyclictest] reducing 1
-    [INFO] [hackbench] cleaning up hackbench on node 0
-    [INFO] [cyclictest] reducing 2
-    [INFO] [cyclictest] reducing 3
-    [INFO] [cyclictest] reducing 4
-    [INFO] [cyclictest] reducing 5
-    [INFO] [cyclictest] reducing 6
-    [INFO] [cyclictest] reducing 7
-    [INFO] [cyclictest] reducing system
-    stopping run at Sat Oct 15 10:24:43 2022
-    [INFO] Waiting for measurement modules to complete
-      ===================================================================
-       rteval (v3.3) report
-      -------------------------------------------------------------------
-       Test run:     2022-10-15 10:13:44
-       Run time:     0 days 0h 10m 4s
-
-
-       Tested node:  my.edge.device
-       Model:        Seco - C40
-       BIOS version: American Megatrends Inc. (ver: 1.08, rev :5.13, release date: 04/23/2020)
-
-       CPU cores:    8 (online: 8)
-       NUMA Nodes:   1
-       Memory:       30659.227 MB
-       Kernel:       5.14.0-70.26.1.rt21.98.el9_0.x86_64  (RT enabled)
-       Base OS:      Red Hat Enterprise Linux release 9.0 (Plow)
-       Architecture: x86_64
-       Clocksource:  tsc
-       Available:    tsc hpet acpi_pm
-
-       System load:
-           Load average: 53.73
-
-           Executed loads:
-             - kcompile: numactl --cpunodebind 0 make O=/var/home/core/rteval-build/node0 -C /var/home/core/rteval-build/linux-5.13.2 -j24;
-             - hackbench: hackbench -P -g 24 -l 1000 -s 1000
-
-     Cmdline:        BOOT_IMAGE=(hd1,gpt2)/ostree/rhel-4328b11bd0722fdef83ce2fac40793df3575697101322940af76efcc287f07fd/vmlinuz-5.14.0-70.26.1.rt21.98.el9_0.x86_64 crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M resume=/dev/mapper/rhel-swap rd.lvm.lv=rhel/root rd.lvm.lv=rhel/swap root=/dev/mapper/rhel-root ostree=/ostree/boot.0/rhel/4328b11bd0722fdef83ce2fac40793df3575697101322940af76efcc287f07fd/0
-
-       Measurement profile 1: With loads, measurements in parallel
-           Latency test
-              Started: 2022-10-15 10:14:38.474422
-              Stopped: 2022-10-15 10:24:39.102624
-              Command: cyclictest -i100 -qmu -h 3500 -p95 -t -a
-
-              System:
-              Statistics:
-                Samples:           48045005
-                Mean:              5.551286840328147us
-                Median:            5us
-                Mode:              5us
-                Range:             254us
-                Min:               2us
-                Max:               256us
-                Mean Absolute Dev: 0.8499550012434576us
-                Std.dev:           1.1967909777622785us
-
-              CPU core 0       Priority: 95
-              Statistics:
-                Samples:           6005785
-                Mean:              5.122747817312807us
-                Median:            0.0us
-                Mode:              5us
-                Range:             75us
-                Min:               2us
-                Max:               77us
-                Mean Absolute Dev: 0.6260134638501131us
-                Std.dev:           1.0871353626245233us
-
-              CPU core 1       Priority: 95
-              Statistics:
-                Samples:           6005735
-                Mean:              5.901237900107148us
-                Median:            5us
-                Mode:              6us
-                Range:             38us
-                Min:               2us
-                Max:               40us
-                Mean Absolute Dev: 0.8235561693859761us
-                Std.dev:           1.1829657040801762us
-
-              CPU core 2       Priority: 95
-              Statistics:
-                Samples:           6005693
-                Mean:              5.2380717762296545us
-                Median:            0.0us
-                Mode:              5us
-                Range:             180us
-                Min:               2us
-                Max:               182us
-                Mean Absolute Dev: 0.6650359407810875us
-                Std.dev:           1.0766084703817709us
-
-              CPU core 3       Priority: 95
-              Statistics:
-                Samples:           6005753
-                Mean:              5.92799787137433us
-                Median:            5us
-                Mode:              6us
-                Range:             37us
-                Min:               2us
-                Max:               39us
-                Mean Absolute Dev: 0.8227966357217958us
-                Std.dev:           1.2177048247238063us
-
-              CPU core 4       Priority: 95
-              Statistics:
-                Samples:           6005772
-                Mean:              5.213310128989246us
-                Median:            0.0us
-                Mode:              5us
-                Range:             80us
-                Min:               2us
-                Max:               82us
-                Mean Absolute Dev: 0.6589856232485785us
-                Std.dev:           1.073806918048002us
-
-              CPU core 5       Priority: 95
-              Statistics:
-                Samples:           6004851
-                Mean:              5.905758694095823us
-                Median:            5us
-                Mode:              6us
-                Range:             41us
-                Min:               2us
-                Max:               43us
-                Mean Absolute Dev: 0.8067465974721906us
-                Std.dev:           1.186609200833346us
-
-              CPU core 6       Priority: 95
-              Statistics:
-                Samples:           6005673
-                Mean:              5.8937985801091735us
-                Median:            5us
-                Mode:              6us
-                Range:             254us
-                Min:               2us
-                Max:               256us
-                Mean Absolute Dev: 0.799369713849035us
-                Std.dev:           1.2006684100055962us
-
-              CPU core 7       Priority: 95
-              Statistics:
-                Samples:           6005743
-                Mean:              5.207430454483317us
-                Median:            0.0us
-                Mode:              5us
-                Range:             71us
-                Min:               2us
-                Max:               73us
-                Mean Absolute Dev: 0.6747429788425584us
-                Std.dev:           1.100482214012038us
+```
+got system topology: 1 node system (8 cores per node)
+[INFO] importing module stressng
+[INFO] importing module hackbench
+[INFO] importing module kcompile
+[INFO] importing module cyclictest
+[INFO] Preparing load modules
+[INFO] Preparing measurement modules
+[INFO] Using measurement profile [loads: True  parallel: True]
+[INFO] Preparing load modules
+rteval run on 5.14.0-70.26.1.rt21.98.el9_0.x86_64 started at Sat Oct 15 10:14:08 2022
+started 3 loads on 8 cores
+started measurement threads on 8 cores
+Run duration: 600.0 seconds
+[INFO] Preparing measurement modules
+[INFO] Sending start event to all load modules
+[INFO] Waiting 30 seconds to let load modules settle down
+[INFO] [kcompile] Starting load on node 0
+[INFO] [kcompile node0] starting workload on node 0
+[INFO] Sending start event to all measurement modules
+[INFO] waiting for duration (600.0)
+[INFO] Stopping measurement modules
+[INFO] Stopping load modules
+[INFO] [cyclictest] reducing 0
+[INFO] [cyclictest] reducing 1
+[INFO] [hackbench] cleaning up hackbench on node 0
+[INFO] [cyclictest] reducing 2
+[INFO] [cyclictest] reducing 3
+[INFO] [cyclictest] reducing 4
+[INFO] [cyclictest] reducing 5
+[INFO] [cyclictest] reducing 6
+[INFO] [cyclictest] reducing 7
+[INFO] [cyclictest] reducing system
+stopping run at Sat Oct 15 10:24:43 2022
+[INFO] Waiting for measurement modules to complete
+  ===================================================================
+   rteval (v3.3) report
+  -------------------------------------------------------------------
+   Test run:     2022-10-15 10:13:44
+   Run time:     0 days 0h 10m 4s
 
 
-      ===================================================================
+   Tested node:  my.edge.device
+   Model:        Seco - C40
+   BIOS version: American Megatrends Inc. (ver: 1.08, rev :5.13, release date: 04/23/2020)
 
-    ** COLLECTED WARNINGS **
-    # SMBIOS implementations newer than version 2.7 are not
-    # fully supported by this version of dmidecode.
+   CPU cores:    8 (online: 8)
+   NUMA Nodes:   1
+   Memory:       30659.227 MB
+   Kernel:       5.14.0-70.26.1.rt21.98.el9_0.x86_64  (RT enabled)
+   Base OS:      Red Hat Enterprise Linux release 9.0 (Plow)
+   Architecture: x86_64
+   Clocksource:  tsc
+   Available:    tsc hpet acpi_pm
 
-    ** END OF WARNINGS **
+   System load:
+       Load average: 53.73
+
+       Executed loads:
+         - kcompile: numactl --cpunodebind 0 make O=/var/home/core/rteval-build/node0 -C /var/home/core/rteval-build/linux-5.13.2 -j24;
+         - hackbench: hackbench -P -g 24 -l 1000 -s 1000
+
+ Cmdline:        BOOT_IMAGE=(hd1,gpt2)/ostree/rhel-4328b11bd0722fdef83ce2fac40793df3575697101322940af76efcc287f07fd/vmlinuz-5.14.0-70.26.1.rt21.98.el9_0.x86_64 crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M resume=/dev/mapper/rhel-swap rd.lvm.lv=rhel/root rd.lvm.lv=rhel/swap root=/dev/mapper/rhel-root ostree=/ostree/boot.0/rhel/4328b11bd0722fdef83ce2fac40793df3575697101322940af76efcc287f07fd/0
+
+   Measurement profile 1: With loads, measurements in parallel
+       Latency test
+          Started: 2022-10-15 10:14:38.474422
+          Stopped: 2022-10-15 10:24:39.102624
+          Command: cyclictest -i100 -qmu -h 3500 -p95 -t -a
+
+          System:
+          Statistics:
+            Samples:           48045005
+            Mean:              5.551286840328147us
+            Median:            5us
+            Mode:              5us
+            Range:             254us
+            Min:               2us
+            Max:               256us
+            Mean Absolute Dev: 0.8499550012434576us
+            Std.dev:           1.1967909777622785us
+
+          CPU core 0       Priority: 95
+          Statistics:
+            Samples:           6005785
+            Mean:              5.122747817312807us
+            Median:            0.0us
+            Mode:              5us
+            Range:             75us
+            Min:               2us
+            Max:               77us
+            Mean Absolute Dev: 0.6260134638501131us
+            Std.dev:           1.0871353626245233us
+
+          CPU core 1       Priority: 95
+          Statistics:
+            Samples:           6005735
+            Mean:              5.901237900107148us
+            Median:            5us
+            Mode:              6us
+            Range:             38us
+            Min:               2us
+            Max:               40us
+            Mean Absolute Dev: 0.8235561693859761us
+            Std.dev:           1.1829657040801762us
+
+          CPU core 2       Priority: 95
+          Statistics:
+            Samples:           6005693
+            Mean:              5.2380717762296545us
+            Median:            0.0us
+            Mode:              5us
+            Range:             180us
+            Min:               2us
+            Max:               182us
+            Mean Absolute Dev: 0.6650359407810875us
+            Std.dev:           1.0766084703817709us
+
+          CPU core 3       Priority: 95
+          Statistics:
+            Samples:           6005753
+            Mean:              5.92799787137433us
+            Median:            5us
+            Mode:              6us
+            Range:             37us
+            Min:               2us
+            Max:               39us
+            Mean Absolute Dev: 0.8227966357217958us
+            Std.dev:           1.2177048247238063us
+
+          CPU core 4       Priority: 95
+          Statistics:
+            Samples:           6005772
+            Mean:              5.213310128989246us
+            Median:            0.0us
+            Mode:              5us
+            Range:             80us
+            Min:               2us
+            Max:               82us
+            Mean Absolute Dev: 0.6589856232485785us
+            Std.dev:           1.073806918048002us
+
+          CPU core 5       Priority: 95
+          Statistics:
+            Samples:           6004851
+            Mean:              5.905758694095823us
+            Median:            5us
+            Mode:              6us
+            Range:             41us
+            Min:               2us
+            Max:               43us
+            Mean Absolute Dev: 0.8067465974721906us
+            Std.dev:           1.186609200833346us
+
+          CPU core 6       Priority: 95
+          Statistics:
+            Samples:           6005673
+            Mean:              5.8937985801091735us
+            Median:            5us
+            Mode:              6us
+            Range:             254us
+            Min:               2us
+            Max:               256us
+            Mean Absolute Dev: 0.799369713849035us
+            Std.dev:           1.2006684100055962us
+
+          CPU core 7       Priority: 95
+          Statistics:
+            Samples:           6005743
+            Mean:              5.207430454483317us
+            Median:            0.0us
+            Mode:              5us
+            Range:             71us
+            Min:               2us
+            Max:               73us
+            Mean Absolute Dev: 0.6747429788425584us
+            Std.dev:           1.100482214012038us
+
+
+  ===================================================================
+
+** COLLECTED WARNINGS **
+# SMBIOS implementations newer than version 2.7 are not
+# fully supported by this version of dmidecode.
+
+** END OF WARNINGS **
+```
