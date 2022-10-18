@@ -1,4 +1,15 @@
-# Enable RHEL for Realtime kernel with RHEL for Edge
+# Enable RHEL for Real Time kernel with RHEL for Edge
+RHEL for Real Time provides "bounded" latency between an event and
+a system response, typically in the microsecond range. Bounded
+latency brings predictability and determinism. Red Hat supports the
+Linux Foundation PREEMPT_RT patch as a drop-in kernel replacement
+with surrounding tools and utilities. The [official documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_for_real_time/9)
+covers this in more depth.
+
+This project demonstrates how to use the RHEL for Real Time kernel
+within a RHEL for Edge rpm-ostree image and then run the corresponding
+benchmarks to measure performance.
+
 ## Setup
 Edit the `demo.conf` file and make sure that the credentials are
 correct, the subscription type is correct for your deployment of
@@ -21,7 +32,7 @@ Log in again and then run the remaining script:
     ./03-prep-image-build.sh
 
 ## Build the RHEL for Edge image
-Enable the RHEL for Realtime package repository for image-builder
+Enable the RHEL for Real Time package repository for image-builder
 using the following command:
 
     composer-cli sources add rt-source.toml
@@ -146,7 +157,7 @@ Installation Progress screen.
 When the edge device gets to the BIOS startup screen, simply remove
 the USB thumb drive before the system boots.
 
-## Test system real-time performance under load
+## Test system real time performance under load
 The first step is to run hardware and firmware latency tests to
 ensure the system is suitable for RHEL for Real Time. Login to the
 edge device using the credentials that were set in `demo.conf` for
