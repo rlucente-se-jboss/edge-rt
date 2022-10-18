@@ -200,6 +200,7 @@ into the following three categories:
 * For microsecond event response times, RHEL for Real Time may require additional tuning.
 * For nanosecond event response times, a hard RTOS solution would be required.
 
+
     got system topology: 1 node system (8 cores per node)
     [INFO] importing module stressng
     [INFO] importing module hackbench
