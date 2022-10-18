@@ -185,6 +185,21 @@ Upon completion, the test will output a performance summary. For
 my test, the results are below which show event response times
 mean/median/mode around 5 microseconds.
 
+It's important to note that the event response times are very tightly
+bound to the overall system mean of 5.5 microseconds, but there are
+outliers. If the curve is normally distributed, then 99.7% of all
+samples will be within three standard deviations of the mean yielding
+a range of 2 to just under 10 microseconds. However there are
+outliers with worst case being 256 microseconds. Hard RTOS solutions
+offer guarantees on event response times; RHEL for Real Time provides
+bounded latency within a tight band compared to the stock Linux
+kernel. Since outliers can still occur, guidance generally falls
+into the following three categories:
+
+* For millisecond event response times, RHEL for Real Time can handle that.
+* For microsecond event response times, RHEL for Real Time may require additional tuning.
+* For nanosecond event response times, a hard RTOS solution would be required.
+
     got system topology: 1 node system (8 cores per node)
     [INFO] importing module stressng
     [INFO] importing module hackbench
